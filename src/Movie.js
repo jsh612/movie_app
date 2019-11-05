@@ -1,9 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./Movie.css";
 
-function Movie({ id, year, title, summary, poster }) {
+function Movie({ year, title, summary, poster }) {
   // state를 갖을 필요가 없으므로 Class 컴포넌트 일 필요는 없다.
-  return <h4>{title}</h4>;
+  return (
+    <div className="movie">
+      <img src={poster} alt={title} title={title}></img>
+      <div className="movie__data">
+        <h3 className="movie__title">{title}</h3>
+        <h5 className="movie__year">{year}</h5>
+        <p className="movie__summary">{summary}</p>
+      </div>
+    </div>
+  );
 }
 
 Movie.propTypes = {

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import Movie from "./Movie";
+import "./App.css";
 
 class App extends Component {
   state = {
@@ -26,10 +27,14 @@ class App extends Component {
     //react는 자동적으로 class component의 render메소드를 실행시킨다.
     const { isLoading, movies } = this.state;
     return (
-      <div>
-        {isLoading
-          ? "Loading..."
-          : movies.map(movie => (
+      <section className="container">
+        {isLoading ? (
+          <div className="loader">
+            <span className="loader__text">Loading...</span>
+          </div>
+        ) : (
+          <div className="movies">
+            {movies.map(movie => (
               <Movie
                 key={movie.id}
                 id={movie.id}
@@ -39,7 +44,9 @@ class App extends Component {
                 poster={movie.medium_cover_image}
               />
             ))}
-      </div>
+          </div>
+        )}
+      </section>
     );
   }
 }
