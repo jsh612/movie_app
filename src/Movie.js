@@ -23,6 +23,30 @@ function Movie({ year, title, summary, poster, genres }) {
   );
 }
 
+// //class 형태로 작성해봄
+// class Movie extends React.Component {
+//   render() {
+//     const { year, title, summary, poster, genres } = this.props;
+//     return (
+//       <div className="movie">
+//         <img src={poster} alt={title} title={title}></img>
+//         <div className="movie__data">
+//           <h3 className="movie__title">{title}</h3>
+//           <h5 className="movie__year">{year}</h5>
+//           <ul className="movie__genres">
+//             {genres.map((genre, idx) => (
+//               <li key={idx} className="genres__genre">
+//                 {genre}
+//               </li>
+//             ))}
+//           </ul>
+//           <p className="movie__summary">{summary.slice(0, 180)}...</p>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
 Movie.propTypes = {
   id: PropTypes.number.isRequired,
   year: PropTypes.number.isRequired,
